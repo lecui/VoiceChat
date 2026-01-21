@@ -1,26 +1,30 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Alex\\Desktop\\discord\\WpfApp1-client\\",
+  "WorkspaceRootPath": "C:\\Users\\Alex\\Documents\\Visual Studio 2022\\Github\\VoiceChat\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{12FCFDAC-A916-4469-A75B-B7FC26183092}|WpfApp1-client.csproj|C:\\Users\\Alex\\Desktop\\discord\\WpfApp1-client\\viewmodels\\memberviewmodel .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{12FCFDAC-A916-4469-A75B-B7FC26183092}|WpfApp1-client.csproj|c:\\users\\alex\\documents\\visual studio 2022\\github\\voicechat\\converters\\statustocolorconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12FCFDAC-A916-4469-A75B-B7FC26183092}|WpfApp1-client.csproj|solutionrelative:converters\\statustocolorconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{12FCFDAC-A916-4469-A75B-B7FC26183092}|WpfApp1-client.csproj|c:\\users\\alex\\documents\\visual studio 2022\\github\\voicechat\\viewmodels\\memberviewmodel .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{12FCFDAC-A916-4469-A75B-B7FC26183092}|WpfApp1-client.csproj|solutionrelative:viewmodels\\memberviewmodel .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{12FCFDAC-A916-4469-A75B-B7FC26183092}|WpfApp1-client.csproj|C:\\Users\\Alex\\Desktop\\discord\\WpfApp1-client\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{12FCFDAC-A916-4469-A75B-B7FC26183092}|WpfApp1-client.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{12FCFDAC-A916-4469-A75B-B7FC26183092}|WpfApp1-client.csproj|C:\\Users\\Alex\\Desktop\\discord\\WpfApp1-client\\viewmodels\\client_connect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{12FCFDAC-A916-4469-A75B-B7FC26183092}|WpfApp1-client.csproj|solutionrelative:viewmodels\\client_connect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{12FCFDAC-A916-4469-A75B-B7FC26183092}|WpfApp1-client.csproj|C:\\Users\\Alex\\Desktop\\discord\\WpfApp1-client\\viewmodels\\voicechannelviewmodel .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{12FCFDAC-A916-4469-A75B-B7FC26183092}|WpfApp1-client.csproj|C:\\Users\\Alex\\Documents\\Visual Studio 2022\\Github\\VoiceChat\\viewmodels\\voicechannelviewmodel .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{12FCFDAC-A916-4469-A75B-B7FC26183092}|WpfApp1-client.csproj|solutionrelative:viewmodels\\voicechannelviewmodel .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{12FCFDAC-A916-4469-A75B-B7FC26183092}|WpfApp1-client.csproj|c:\\users\\alex\\desktop\\discord\\wpfapp1-client\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{12FCFDAC-A916-4469-A75B-B7FC26183092}|WpfApp1-client.csproj|C:\\Users\\Alex\\Documents\\Visual Studio 2022\\Github\\VoiceChat\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12FCFDAC-A916-4469-A75B-B7FC26183092}|WpfApp1-client.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{12FCFDAC-A916-4469-A75B-B7FC26183092}|WpfApp1-client.csproj|C:\\Users\\Alex\\Documents\\Visual Studio 2022\\Github\\VoiceChat\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{12FCFDAC-A916-4469-A75B-B7FC26183092}|WpfApp1-client.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{12FCFDAC-A916-4469-A75B-B7FC26183092}|WpfApp1-client.csproj|C:\\Users\\Alex\\Documents\\Visual Studio 2022\\Github\\VoiceChat\\viewmodels\\client_connect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12FCFDAC-A916-4469-A75B-B7FC26183092}|WpfApp1-client.csproj|solutionrelative:viewmodels\\client_connect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,43 +34,56 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
+              "Title": "StatusToColorConverter.cs",
+              "DocumentMoniker": "C:\\Users\\Alex\\Documents\\Visual Studio 2022\\Github\\VoiceChat\\Converters\\StatusToColorConverter.cs",
+              "RelativeDocumentMoniker": "Converters\\StatusToColorConverter.cs",
+              "ToolTip": "C:\\Users\\Alex\\Documents\\Visual Studio 2022\\Github\\VoiceChat\\Converters\\StatusToColorConverter.cs",
+              "RelativeToolTip": "Converters\\StatusToColorConverter.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAuwBYAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-21T18:20:52.057Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "VoiceChannelViewModel .cs",
-              "DocumentMoniker": "C:\\Users\\Alex\\Desktop\\discord\\WpfApp1-client\\ViewModels\\VoiceChannelViewModel .cs",
+              "DocumentMoniker": "C:\\Users\\Alex\\Documents\\Visual Studio 2022\\Github\\VoiceChat\\ViewModels\\VoiceChannelViewModel .cs",
               "RelativeDocumentMoniker": "ViewModels\\VoiceChannelViewModel .cs",
-              "ToolTip": "C:\\Users\\Alex\\Desktop\\discord\\WpfApp1-client\\ViewModels\\VoiceChannelViewModel .cs",
+              "ToolTip": "C:\\Users\\Alex\\Documents\\Visual Studio 2022\\Github\\VoiceChat\\ViewModels\\VoiceChannelViewModel .cs",
               "RelativeToolTip": "ViewModels\\VoiceChannelViewModel .cs",
-              "ViewState": "AgIAALoAAAAAAAAAAAAAAGIAAAAxAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-09T18:35:38.445Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "MemberViewModel .cs",
-              "DocumentMoniker": "C:\\Users\\Alex\\Desktop\\discord\\WpfApp1-client\\ViewModels\\MemberViewModel .cs",
+              "DocumentMoniker": "C:\\Users\\Alex\\Documents\\Visual Studio 2022\\Github\\VoiceChat\\ViewModels\\MemberViewModel .cs",
               "RelativeDocumentMoniker": "ViewModels\\MemberViewModel .cs",
-              "ToolTip": "C:\\Users\\Alex\\Desktop\\discord\\WpfApp1-client\\ViewModels\\MemberViewModel .cs",
+              "ToolTip": "C:\\Users\\Alex\\Documents\\Visual Studio 2022\\Github\\VoiceChat\\ViewModels\\MemberViewModel .cs",
               "RelativeToolTip": "ViewModels\\MemberViewModel .cs",
-              "ViewState": "AgIAAGYCAAAAAAAAAAAkwHgCAAANAAAAAAAAAA==",
+              "ViewState": "AgIAACgAAAAAAAAAAAArwDEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-09T13:00:23.864Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "Client_Connect.cs",
-              "DocumentMoniker": "C:\\Users\\Alex\\Desktop\\discord\\WpfApp1-client\\ViewModels\\Client_Connect.cs",
+              "DocumentMoniker": "C:\\Users\\Alex\\Documents\\Visual Studio 2022\\Github\\VoiceChat\\ViewModels\\Client_Connect.cs",
               "RelativeDocumentMoniker": "ViewModels\\Client_Connect.cs",
-              "ToolTip": "C:\\Users\\Alex\\Desktop\\discord\\WpfApp1-client\\ViewModels\\Client_Connect.cs",
+              "ToolTip": "C:\\Users\\Alex\\Documents\\Visual Studio 2022\\Github\\VoiceChat\\ViewModels\\Client_Connect.cs",
               "RelativeToolTip": "ViewModels\\Client_Connect.cs",
-              "ViewState": "AgIAAFYAAAAAAAAAAAAMwFAAAAA4AAAAAAAAAA==",
+              "ViewState": "AgIAADgAAAAAAAAAAAAswFAAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-09T12:01:51.15Z",
               "EditorCaption": ""
@@ -75,9 +92,9 @@
               "$type": "Document",
               "DocumentIndex": 4,
               "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\Alex\\Desktop\\discord\\WpfApp1-client\\MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Alex\\Documents\\Visual Studio 2022\\Github\\VoiceChat\\MainWindow.xaml",
               "RelativeDocumentMoniker": "MainWindow.xaml",
-              "ToolTip": "C:\\Users\\Alex\\Desktop\\discord\\WpfApp1-client\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\Alex\\Documents\\Visual Studio 2022\\Github\\VoiceChat\\MainWindow.xaml",
               "RelativeToolTip": "MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2026-01-07T14:21:25.31Z",
@@ -85,13 +102,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\Alex\\Desktop\\discord\\WpfApp1-client\\MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Alex\\Documents\\Visual Studio 2022\\Github\\VoiceChat\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\Alex\\Desktop\\discord\\WpfApp1-client\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\Alex\\Documents\\Visual Studio 2022\\Github\\VoiceChat\\MainWindow.xaml.cs",
               "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AgIAAJcAAAAAAAAAAAD4v6cAAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAAJcAAAAAAAAAAAD4v6cAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-07T14:21:25.045Z",
               "EditorCaption": ""

@@ -762,7 +762,7 @@
                                             <StackPanel VerticalAlignment="Center" 
                                                         Margin="8 0 0 0">
                                                 <TextBlock Text="{Binding Name}"
-                                                           Foreground="{Binding Online, Converter={StaticResource StatusToColorConverter}}"/>
+                                                           Foreground="{Binding Status, Converter={StaticResource StatusToColorConverter}}"/>
                                                 <TextBlock Text="{Binding Status}" 
                                                            Foreground="#43b581" 
                                                            FontSize="11"

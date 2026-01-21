@@ -9,15 +9,26 @@ using System.Windows.Media;
 
 namespace WpfApp1_client.Converters
 {
+    public enum ClientStatus
+    {
+        Online,
+        InCall,
+        InRoom,
+        Away,
+        Streaming,
+        Offline
+    }
     public class StatusToColorConverter : IValueConverter
     {
+       
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value is bool isOnline)
-            {
-                return isOnline ? new SolidColorBrush(Color.FromRgb(220, 221, 222)) :
-                                  new SolidColorBrush(Color.FromRgb(114, 118, 125));
-            }
+            
+         
+                if (value.ToString() == "Online") return new SolidColorBrush(Color.FromRgb(220, 221, 222)); ;
+                if (value.ToString() == "Offline") return new SolidColorBrush(Color.FromRgb(114, 118, 125));
+
+            
             return new SolidColorBrush(Color.FromRgb(114, 118, 125));
         }
 
