@@ -78,110 +78,6 @@ namespace WpfApp1_client.ViewModels
         }
 
     }
-    /*
-        public class MemberViewModel : INotifyPropertyChanged
-        {
-            private string _username;
-            private bool _isOnline;
-            private string _statusText;
-            private bool _IsMe;
-            private string _RoomName;
-            private string _RoomID;
-
-            public string Username
-            {
-                get => _username;
-                set
-                {
-                    if (_username != value)
-                    {
-                        _username = value;
-                        OnPropertyChanged();
-                    }
-                }
-            }
-
-            public bool IsOnline
-            {
-                get => _isOnline;
-                set
-                {
-                    if (_isOnline != value)
-                    {
-                        _isOnline = value;
-                        OnPropertyChanged();
-                        OnPropertyChanged(nameof(HasStatus));
-                    }
-                }
-            }
-
-            public string StatusText
-            {
-                get => _statusText;
-                set
-                {
-                    if (_statusText != value)
-                    {
-                        _statusText = value;
-                        OnPropertyChanged();
-                        OnPropertyChanged(nameof(HasStatus));
-                    }
-                }
-            }
-
-            public bool IsMe
-            {
-                get => _IsMe;
-                set
-                {
-                    if (_IsMe != value)
-                    {
-                        _IsMe = value;
-                        OnPropertyChanged();
-                        OnPropertyChanged(nameof(HasStatus));
-                    }
-                }
-            }
-
-            public string RoomName
-            {
-                get => _RoomName;
-                set
-                {
-                    if (_RoomName != value)
-                    {
-                        _RoomName = value;
-                        OnPropertyChanged();
-
-                    }
-                }
-            }
-            public string RoomID
-            {
-                get => _RoomID;
-                set
-                {
-                    if (_RoomID != value)
-                    {
-                        _RoomID = value;
-                        OnPropertyChanged();
-                    }
-                }
-            }
-
-            public string AvatarColor { get; set; }
-            public string Initials { get; set; }
-
-            public bool HasStatus => !string.IsNullOrEmpty(StatusText);
-
-            public event PropertyChangedEventHandler PropertyChanged;
-
-            protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-            {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
-    */
 
     public class RelayCommand : ICommand
     {
@@ -235,8 +131,11 @@ namespace WpfApp1_client.ViewModels
         private ObservableCollection<MembersList> _awayMembers;
         private ObservableCollection<MembersList> _offlineMembers;
         private ObservableCollection<ServersList> _servers;
+        private ObservableCollection<Room> _rooms;
 
         private string _memberCountText;
+        private string _serverIDText;
+        private string _serverNameText;
         private string _onlineMembersHeader;
         private string _awayMembersHeader;
         private string _offlineMembersHeader;
@@ -244,8 +143,11 @@ namespace WpfApp1_client.ViewModels
 
         private string _currentServerID;
 
-        private string _inputText;
+        private string _inputTextCreateServer;
+        private string _inputTextFindServer;
+        private string _inputTextCreateRoom;
         private bool _isInputVisible;
+        private bool _isInputVisibleCreateRoom;
         public Dictionary<string, ServersList> Servers = new Dictionary<string, ServersList>(); //список серверов пользователя
         private MembersList _currentUser; // переменная главного пользователя
 
@@ -273,8 +175,14 @@ namespace WpfApp1_client.ViewModels
 
         public ICommand CreateVoiceChannelCommand { get; }
         public ICommand CreateServerCommand { get; }
+        public ICommand FindServerCommand { get; }
         public ICommand ApplyCommand { get; }
+        public ICommand CreateRoomCommand { get; }
+        public ICommand CreateRoomsCommand { get; }
+        public ICommand FindCommand { get; }
         public ICommand JoinServerCommand { get; }
+        public ICommand JoinRoomCommand { get; }
+        public ICommand CancelCommand { get; }
 
         public ObservableCollection<MembersList> Members
         {
@@ -338,12 +246,25 @@ namespace WpfApp1_client.ViewModels
                     OnPropertyChanged();
                 }
             }
+        }  
+        public ObservableCollection<Room> CurrentRooms
+        {
+            get => _rooms;
+            set
+            {
+                if (_rooms != value)
+                {
+                    _rooms = value;
+                    OnPropertyChanged();
+                }
+            }
         }
 
         public ICollectionView OnlineMembersView { get; private set; }
         public ICollectionView AwayMembersView { get; private set; }
         public ICollectionView OfflineMembersView { get; private set; }
         public ICollectionView CurrentServersView { get; private set; }
+        public ICollectionView CurrentRoomsView { get; private set; }
 
         public string MemberCountText
         {
@@ -353,6 +274,30 @@ namespace WpfApp1_client.ViewModels
                 if (_memberCountText != value)
                 {
                     _memberCountText = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        public string ServerIDText
+        {
+            get => _serverIDText;
+            set
+            {
+                if (_serverIDText != value)
+                {
+                    _serverIDText = value;
+                    OnPropertyChanged();
+                }
+            }
+        }public string ServerNameText
+        {
+            get => _serverNameText;
+            set
+            {
+                if (_serverNameText != value)
+                {
+                    _serverNameText = value;
                     OnPropertyChanged();
                 }
             }
@@ -396,24 +341,13 @@ namespace WpfApp1_client.ViewModels
                 }
             }
         }
-        public string CurrentServersHeader
-        {
-            get => _serversHeader;
-            set
-            {
-                if (_serversHeader != value)
-                {
-                    _serversHeader = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
+  
 
         public bool HasOnlineMembers => OnlineMembers?.Count > 0;
         public bool HasAwayMembers => AwayMembers?.Count > 0;
         public bool HasOfflineMembers => OfflineMembers?.Count > 0;
         public bool HasCurrentServers => CurrentServers?.Count > 0;
+        public bool HasCurrentSRooms => CurrentRooms?.Count > 0;
 
 
         public ICommand ClearAllMembersCommand { get; }
@@ -437,18 +371,46 @@ namespace WpfApp1_client.ViewModels
             }
         }
   
-        public string InputText
+        public string InputTextCreateServer
         {
-            get => _inputText;
+            get => _inputTextCreateServer;
             set
             {
-                _inputText = value;
+                _inputTextCreateServer = value;
                 OnPropertyChanged();
             }
         }
 
+        public string InputTextFindServer
+        {
+            get => _inputTextFindServer;
+            set
+            {
+                _inputTextFindServer = value;
+                OnPropertyChanged();
+            }
+        }       
+        public string InputTextCreateRoom
+        {
+            get => _inputTextCreateRoom;
+            set
+            {
+                _inputTextCreateRoom = value;
+                OnPropertyChanged();
+            }
+        }
 
+        //отображение управлением серверами
         public bool IsInputVisible
+        {
+            get => _isInputVisible;
+            set
+            {
+                _isInputVisible = value;
+                OnPropertyChanged();
+            }
+        }
+        public bool IsInputVisibleCreateRoom
         {
             get => _isInputVisible;
             set
@@ -479,12 +441,14 @@ namespace WpfApp1_client.ViewModels
             _awayMembers = new ObservableCollection<MembersList>();
             _offlineMembers = new ObservableCollection<MembersList>();
             _servers = new ObservableCollection<ServersList>();
+            _rooms = new ObservableCollection<Room>();
 
             // Инициализация представлений
             OnlineMembersView = CollectionViewSource.GetDefaultView(_onlineMembers);
             AwayMembersView = CollectionViewSource.GetDefaultView(_awayMembers);
             OfflineMembersView = CollectionViewSource.GetDefaultView(_offlineMembers);
             CurrentServersView = CollectionViewSource.GetDefaultView(_servers);
+            CurrentRoomsView = CollectionViewSource.GetDefaultView(_rooms);
 
             // Создание команд
 
@@ -519,22 +483,62 @@ namespace WpfApp1_client.ViewModels
             // Команда создания канала
             CreateVoiceChannelCommand = new RelayCommand(CreateVoiceChannel);
             CreateServerCommand = new RelayCommand(CreateNewServer);
+            FindServerCommand = new RelayCommand(FindNewServer);
             ApplyCommand = new RelayCommand(EnterServerName);
+            CreateRoomCommand = new RelayCommand(CreateRoom);
+            FindCommand = new RelayCommand(FindServerID);
+            CreateRoomsCommand = new RelayCommand(CreateRooms);
+            CancelCommand = new RelayCommand(CancelServerName);
             JoinServerCommand = new RelayCommand_1<ServersList>(ExecuteJoinServer);
+            JoinRoomCommand = new RelayCommand_1<Room>(ExecuteJoinRoom);
 
 
 
 
         }
-        private void ExecuteJoinServer(ServersList server)
+        private void ExecuteJoinServer(ServersList server) //вызывается при переключении серверов
         {
             var client = MainWindow.clientConnect;
-            client.SendCommand($"/joint_server {server.ServerID}");
+          //  client.SendCommand($"/joint_server {server.ServerID}");
+            client.SendCommand($"/server_list");
+            _currentServerID = server.ServerID;
+            ServerNameText = server.ServerName;
+            ServerIDText = server.ServerID ;
+
+            OfflineMembers.Clear();
+            OnlineMembers.Clear();
+            AwayMembers.Clear();
+            Members.Clear();
+            AddMember(_currentUser);
+            CurrentRooms.Clear();
+            foreach (var _rum in Servers[_currentServerID].Rooms)
+            {
+                CurrentRooms.Add(_rum);
+            }
+
+
+
+            // Обновляем счетчики и заголовки
+            UpdateHeaders();
+            UpdateMemberCount();
+
+            // Уведомляем UI об изменении видимости секций
+            OnPropertyChanged(nameof(HasOnlineMembers));
+            OnPropertyChanged(nameof(HasAwayMembers));
+            OnPropertyChanged(nameof(HasOfflineMembers));
+            OnPropertyChanged(nameof(HasCurrentServers));
+            OnPropertyChanged(nameof(HasCurrentSRooms));
+        }  
+        private void ExecuteJoinRoom(Room __room)
+        {
+            var client = MainWindow.clientConnect;
+            client.SendCommand($"/joint_server {_currentServerID}");
+            client.SendCommand($"/joint_room {__room.RoomId}");
             
            // CurrentServer = _currentServerID = server.ServerID;
             // Действия с сервером...
         }
-        private void ToggleCurrentUserStatus()
+        private void ToggleCurrentUserStatus() //функция переключения статуса пользователя
         {
             if (CurrentUser != null)
             {
@@ -562,6 +566,7 @@ namespace WpfApp1_client.ViewModels
                 OnPropertyChanged(nameof(HasAwayMembers));
                 OnPropertyChanged(nameof(HasOfflineMembers));
                 OnPropertyChanged(nameof(HasCurrentServers));
+               OnPropertyChanged(nameof(HasCurrentSRooms));
             }
         }
         // Метод для обновления статуса текущего пользователя:
@@ -628,22 +633,60 @@ namespace WpfApp1_client.ViewModels
         }
 
 
+        private void CancelServerName()
+        {
+            IsInputVisible = false;
+        }
+        private void CreateRoom()
+        {
+            IsInputVisibleCreateRoom = !IsInputVisibleCreateRoom;
+        }
 
         private void EnterServerName()
         {
             var client = MainWindow.clientConnect;
 
-            if (!string.IsNullOrWhiteSpace(InputText))
+            if (!string.IsNullOrWhiteSpace(InputTextCreateServer))
             {
                 IsInputVisible = false;
-                client.SendCommand($"/create_server {InputText}");
+                client.SendCommand($"/create_server {InputTextCreateServer}");
+            }
+        } 
+        private void FindServerID()
+        {
+            var client = MainWindow.clientConnect;
+
+            if (!string.IsNullOrWhiteSpace(InputTextFindServer))
+            {
+                IsInputVisible = false;
+                client.SendCommand($"/joint_server {InputTextFindServer}");
+            }
+        }        
+        private void CreateRooms()
+        {
+            var client = MainWindow.clientConnect;
+
+            if (!string.IsNullOrWhiteSpace(InputTextCreateRoom))
+            {
+                IsInputVisibleCreateRoom = false;
+                client.SendCommand($"/create_room {InputTextCreateRoom}");
             }
         }
+
         public void CreateNewServer()
         {
 
             IsInputVisible = true;
-            InputText = string.Empty;
+            InputTextCreateServer = string.Empty;
+
+            //  client.SendCommand(command);
+
+        }
+        public void FindNewServer()
+        {
+
+            IsInputVisible = true;
+            InputTextFindServer = string.Empty;
 
             //  client.SendCommand(command);
 
@@ -703,6 +746,8 @@ namespace WpfApp1_client.ViewModels
                     Servers.Remove(server.Key);
                     Servers.Add(server.Key, server.Value);
                     CurrentServers.Add(server.Value);
+                   
+
 
                 }
                 else//если сервера еще нет
@@ -749,6 +794,7 @@ namespace WpfApp1_client.ViewModels
             OnPropertyChanged(nameof(HasAwayMembers));
             OnPropertyChanged(nameof(HasOfflineMembers));
             OnPropertyChanged(nameof(HasCurrentServers));
+            OnPropertyChanged(nameof(HasCurrentSRooms));
         }
         public void ServerAdded(IEnumerable<ServersList> Servers)
         {
@@ -770,8 +816,14 @@ namespace WpfApp1_client.ViewModels
                 AwayMembers.Clear();
                 Members.Clear();
                 AddMember(_currentUser);
+            CurrentRooms.Clear();
+            foreach (var _rum in Servers[_currentServerID].Rooms)
+            {
+                CurrentRooms.Add(_rum);
+            }
             
-           
+
+
             // Обновляем счетчики и заголовки
             UpdateHeaders();
             UpdateMemberCount();
@@ -781,6 +833,7 @@ namespace WpfApp1_client.ViewModels
             OnPropertyChanged(nameof(HasAwayMembers));
             OnPropertyChanged(nameof(HasOfflineMembers));
             OnPropertyChanged(nameof(HasCurrentServers));
+            OnPropertyChanged(nameof(HasCurrentSRooms));
         }
         // Основная функция добавления пользователя
         public void AddMember(MembersList member)
@@ -805,6 +858,7 @@ namespace WpfApp1_client.ViewModels
             OnPropertyChanged(nameof(HasAwayMembers));
             OnPropertyChanged(nameof(HasOfflineMembers));
             OnPropertyChanged(nameof(HasCurrentServers));
+            OnPropertyChanged(nameof(HasCurrentSRooms));
         }
         private void AddToStatusCollection(MembersList member)
         {
@@ -854,6 +908,7 @@ namespace WpfApp1_client.ViewModels
                     OnPropertyChanged(nameof(HasAwayMembers));
                     OnPropertyChanged(nameof(HasOfflineMembers));
                     OnPropertyChanged(nameof(HasCurrentServers));
+                    OnPropertyChanged(nameof(HasCurrentSRooms));
                 }
             }
         }
@@ -887,6 +942,7 @@ namespace WpfApp1_client.ViewModels
             OnPropertyChanged(nameof(HasAwayMembers));
             OnPropertyChanged(nameof(HasOfflineMembers));
             OnPropertyChanged(nameof(HasCurrentServers));
+            OnPropertyChanged(nameof(HasCurrentSRooms));
         }
         private void UpdateMemberCount()
         {

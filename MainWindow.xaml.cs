@@ -208,6 +208,9 @@ namespace WpfApp1_client
             });
         }
 
+        private void TextBox_IsEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
 
+        }
     }
 }

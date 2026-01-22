@@ -12,11 +12,12 @@ namespace WpfApp1_client.Converters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value is bool isOnline)
-            {
-                return isOnline ? "#43b581" : "#747f8d"; // Зеленый для онлайн, серый для оффлайн
-            }
-            return "#747f8d";
+            if (value.ToString() == "Online") return "#43b581";
+            else
+            if (value.ToString() == "Offline") return "#747f8d";
+            else
+                return "#747f8d";
+           
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
