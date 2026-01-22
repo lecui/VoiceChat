@@ -529,14 +529,11 @@ namespace WpfApp1_client.ViewModels
             OnPropertyChanged(nameof(HasCurrentServers));
             OnPropertyChanged(nameof(HasCurrentSRooms));
         }  
-        private void ExecuteJoinRoom(Room __room)
+        private void ExecuteJoinRoom(Room __room) //вызывается при выборе комнаты
         {
             var client = MainWindow.clientConnect;
-            client.SendCommand($"/joint_server {_currentServerID}");
-            client.SendCommand($"/joint_room {__room.RoomId}");
+            client.SendCommand($"/Enjoi_room {_currentServerID} {__room.RoomId}");
             
-           // CurrentServer = _currentServerID = server.ServerID;
-            // Действия с сервером...
         }
         private void ToggleCurrentUserStatus() //функция переключения статуса пользователя
         {
@@ -669,7 +666,7 @@ namespace WpfApp1_client.ViewModels
             if (!string.IsNullOrWhiteSpace(InputTextCreateRoom))
             {
                 IsInputVisibleCreateRoom = false;
-                client.SendCommand($"/create_room {InputTextCreateRoom}");
+                client.SendCommand($"/create_room {_currentServerID} {InputTextCreateRoom}");
             }
         }
 
